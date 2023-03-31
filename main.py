@@ -3,6 +3,7 @@ import datetime
 
 
 ###########################################################################################
+
 def generate_csv(data):
     keys = [key for key, value in data[0]]
 
