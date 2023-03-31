@@ -2,7 +2,7 @@ import csv
 import datetime
 
 
-###########################################################################################
+########################### Fonction  generate_csv   ################################################################
 
 def generate_csv(data):
     keys = [key for key, value in data[0]]
@@ -23,4 +23,6 @@ def generate_csv(data):
                     value = ",".join(value)
                 row_data[key] = value
             writer.writerow(row_data)
+
+
 
