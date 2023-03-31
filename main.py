@@ -24,5 +24,21 @@ def generate_csv(data):
                 row_data[key] = value
             writer.writerow(row_data)
 
+#########################  Fonction parse_csv ##################################################
 
 
+def parse_csv():
+    students = []
+    with open('students.csv', newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            student = {}
+            for key, value in row.items():
+                if key == 'Birthdate':
+                    student[key] = datetime.strptime(value, '%m/%d/%Y').date()
+                elif key == 'Marks':
+                    student[key] = [int(mark) for mark in value.split(',')]
+                else:
+                    student[key] = value
+            students.append(student)
+    return students
